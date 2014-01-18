@@ -143,7 +143,7 @@ public class VoteLogger extends JavaPlugin implements Listener {
 		
 		votesConf = YamlConfiguration.loadConfiguration(votesFile);
 		
-		InputStream stream = getResource("votes.yml");
+		InputStream stream = getResource("votes" + getCurrentMonth().substring(0, 3) + ".yml");
 		if (stream != null) {
 			YamlConfiguration streamConf = YamlConfiguration.loadConfiguration(stream);
 			votesConf.setDefaults(streamConf);
