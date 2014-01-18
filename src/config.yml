@@ -1,0 +1,4 @@
+# Whether or not you want votes logged to console.
+enableLogging: true
+# The amount of top votes to display
+topVotes: 5
