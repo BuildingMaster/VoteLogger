@@ -68,6 +68,11 @@ public class VoteLogger extends JavaPlugin implements Listener {
 		getCommand("votelogger").setExecutor(this);
 	}
 	
+	public void onDisable() {
+		votes.clear();
+		sortedVotes.clear();
+	}
+	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
 		
@@ -195,6 +200,10 @@ public class VoteLogger extends JavaPlugin implements Listener {
 	}
 	
 	private void displayTopVotes(final Player player) {
+		
+		/* We need to clear the maps and re-update them again for new votes */
+		if (!votes.isEmpty()) votes.clear();
+		if (!sortedVotes.isEmpty()) sortedVotes.clear();
 
 		for (String pathName : votesConf.getKeys(true)) {
 			if (!votes.containsKey(pathName)) {
