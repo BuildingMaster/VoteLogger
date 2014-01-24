@@ -79,7 +79,7 @@ public class VoteLogger extends JavaPlugin implements Listener {
 		/* Just to register their name and votes to 0 */
 		String name = event.getPlayer().getName();
 		
-		if (!votes.containsKey(name)) {
+		if (!votesConf.contains(name)) {
 			reloadVotesConf();
 			votesConf.set(name, 0);
 			saveVotesConf();
